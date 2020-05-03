@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -136,28 +133,5 @@ public class ToggleGUI extends JFrame {
 			}
 		}.start();
 		
-	}
-	
-	public void teste(String str) throws IOException{
-		Runtime rt = Runtime.getRuntime();
-		Process proc = rt.exec(str);
-
-		BufferedReader stdInput = new BufferedReader(new 
-		     InputStreamReader(proc.getInputStream()));
-
-		BufferedReader stdError = new BufferedReader(new 
-		     InputStreamReader(proc.getErrorStream()));
-		
-		System.out.println("Here is the standard output of the command:\n");
-		String s = null;
-		while ((s = stdInput.readLine()) != null) {
-		    System.out.println(s);
-		}
-
-		// Read any errors from the attempted command
-		System.out.println("Here is the standard error of the command (if any):\n");
-		while ((s = stdError.readLine()) != null) {
-		    System.out.println(s);
-		}
 	}
 }
